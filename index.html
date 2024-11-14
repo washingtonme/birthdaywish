@@ -1,191 +1,290 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
-<!--[if gt IE 8]> <html> <![endif]-->
-<!--[if !IE]><!--><html lang="en"><!-- <![endif]-->
+<html>
 <head>
-	<title>Happy Birthday</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  
-	<meta charset="UTF-8" />
-	<meta name="description" content="Happy Birthday">
-	<meta name="robots" content="index, follow" />
-	<meta name="keywords" content="Birthday, Happy">
-	<!-- Start of Facebook Meta -->
-	<meta property="og:type" content="E-Greeting" />
-	<meta property="og:image" content="favicon.ico" />
-	<meta property="og:description" content="Wish you a very Happy Birthday">
-	<!-- End of Facebook Meta Tags -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="loading.css">
-	<link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet/less" href="cake.less">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
-    <style>
-        .bulb-holder .bulb {
-            display: none; /* Initially hide the bulbs */
-        }
-        .celebrate-img {
-            display: none; /* Initially hide the celebrate image */
-            width: 35%; /* Adjust the width as needed */
-        }
-        .message {
-            margin-top: 20px; /* Adjust this value to move the message up or down */
-        }
-    </style>
+<base href="." />
+<title>Happy Birthday Kate!</title>
+<style>
+:root {
+  --blush: #FFD1DC;
+  --lavender: #E6E6FA;
+  --mint: #98FF98;
+  --gold: #FFD700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--blush), var(--lavender));
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.confetti {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.balloons {
+  position: absolute;
+  top: 20%;
+  display: flex;
+  gap: 20px;
+}
+
+.balloon {
+  width: 60px;
+  height: 100px;
+  background: radial-gradient(circle, var(--mint) 70%, var(--gold));
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+  animation: rise 5s ease-in-out infinite;
+  position: relative;
+}
+
+.balloon::after {
+  content: 'K';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.balloon:nth-child(2) { 
+  background: var(--lavender); 
+}
+.balloon:nth-child(2)::after { 
+  content: 'A';
+}
+
+.balloon:nth-child(3) { 
+  background: var(--blush); 
+}
+.balloon:nth-child(3)::after { 
+  content: 'T';
+}
+
+.balloon:nth-child(4) { 
+  background: var(--mint); 
+}
+.balloon:nth-child(4)::after { 
+  content: 'E';
+}
+
+@keyframes rise {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
+}
+
+.cake {
+  width: 200px;
+  height: 150px;
+  background: var(--gold);
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  margin: 30px auto;
+}
+
+.cake::before {
+  content: '';
+  width: 150px;
+  height: 20px;
+  background: var(--blush);
+  border-radius: 10px;
+  position: absolute;
+  top: -10px;
+  left: 25px;
+}
+
+.cake::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 40px;
+  background: orange;
+  border-radius: 10px 10px 0 0;
+  animation: flicker 0.5s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { background: orange; }
+  50% { background: yellow; }
+}
+
+.about-kate {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.heart-frame {
+  clip-path: path('M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z');
+  padding: 20px;
+  background: var(--blush);
+}
+
+.countdown {
+  font-size: 2rem;
+  margin: 20px 0;
+  color: #333;
+  text-align: center;
+}
+
+.gift-box {
+  width: 100px;
+  height: 100px;
+  background: var(--gold);
+  margin: 20px auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gift-box:hover {
+  transform: scale(1.1);
+}
+
+.message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 20px auto;
+  max-width: 600px;
+  line-height: 1.6;
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  50% { box-shadow: 0 4px 20px rgba(255,215,0,0.3); }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
-
 <body>
-	<div id="content">
-		<div class="loading"></div>
-		<audio class="song" controls loop>
-			<source src="Happy_birthday_to_you_MIDI(chosic.com).mp3"></source>
-			Your browser isn't invited for super fun audio time.
-		</audio>
-		<div class="balloons text-center" id="b1">
-			<h4 style="color:#f8b704;">A</h4>
-		</div>
-		<div class="balloons text-center" id="b2">
-			<h4 style="color:#152ae0;">Very</h4>
-		</div>
-		<div class="balloons text-center" id="b3">
-			<h4 style="color:#f50e0e;">Happy</h4>
-		</div>
-		<div class="balloons text-center" id="b4">
-			<h4 style="color:#eff706;">Birthday</h4>
-		</div>
-		<div class="balloons text-center" id="b5">
-			<h4 style="color:#705ef6;">My Love</h4>
-		</div>
-		<div class="balloons text-center" id="b6">
-			<h4 style="color:#6cc712;">& Sweetheart</h4>
-		</div>
-		<div class="balloons text-center" id="b7">
-			<h4 style="color:#0f962c;">Qudus</h4>
-		</div>
 
-		<img src="Images/Balloon-Border.png" width="100%" class="balloon-border">
+<section class="hero">
+  <div class="confetti" id="confetti"></div>
+  <div class="balloons">
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+  </div>
+  <h1>Happy Birthday, Kate!</h1>
+</section>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2 col-xs-2 bulb-holder">
-					<img class="bulb" src="Images/bulb_yellow.png" alt="Yellow Bulb">
-				</div>
-				<div class="col-md-2 col-xs-2 bulb-holder">
-					<img class="bulb" src="Images/bulb_red.png" alt="Red Bulb">
-				</div>
-				<div class="col-md-2 col-xs-2 bulb-holder">
-					<img class="bulb" src="Images/bulb_blue.png" alt="Blue Bulb">
-				</div>
-				<div class="col-md-2 col-xs-2 bulb-holder">
-					<img class="bulb" src="Images/bulb_green.png" alt="Green Bulb">
-				</div>
-				<div class="col-md-2 col-xs-2 bulb-holder">
-					<img class="bulb" src="Images/bulb_pink.png" alt="Pink Bulb">
-				</div>
-				<div class="col-md-2 col-xs-2 bulb-holder">
-					<img class="bulb" src="Images/bulb_orange.png" alt="Orange Bulb">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<img src="Images/HBD Banner.webp" class="bannar" alt="Happy Birthday Banner">
-					<img src="Images/HBD 2 Banner.webp" class="bannar" alt="Happy Birthday Banner 2">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<img src="Images\Qud Image.jpg" class="celebrate-img" alt="Celebrate"> <!-- Add the celebrate image here -->
-				</div>
-			</div>
-			<div class="row cake-cover">
-				<div class="col-md-12 text-center">
-					<div class="cake">
-					  <div class="velas">
-						<div class="fuego"></div>
-						<div class="fuego"></div>
-						<div class="fuego"></div>
-						<div class="fuego"></div>
-						<div class="fuego"></div>
-					  </div>
-					  <div class="cobertura"></div>
-					  <div class="bizcocho"></div>
-					</div>
-				</div>
-			</div>
-			<div class="row message">
-				<div class="col-md-12">
-				<p>On this special day...</p>
-				<p>as radiant as the rest,</p>
-				<p>you realize</p>
-				<p>yet another year has gracefully passed.</p>
-				<p>In the blink of an eye,</p>
-				<p><strong>however,</strong></p>
-				<p>Do you feel...?</p>
-				<p>Today is uniquely extraordinary,</p>
-				<p>exclusively yours.</p>
-				<p>That's why</p>
-				<p>Let's transform it...</p>
-				<p>into the grandest celebration ever.</p>
-				<p>Allow me to share...</p>
-				<p>a slice of joy with you.</p>
-				<p>Thanks for being a constant,</p>
-				<p>for the friendships we've woven.</p>
-				<p>Gratitude for everything,</p>
-				<p>I wish you nothing but the best.</p>
-				<p>May your life flow smoothly,</p>
-				<p>May every wish find its way to reality.</p>
-				<p>Recall</p>
-				<p>your aspirations,</p>
-				<p>live like a liberated bird...</p>
-				<p>soaring in the azure sky.</p>
-				<p>I hope</p>
-				<p>you discover...</p>
-				<p>joy along the journey.</p>
-				<p>Keep your spirits high,</p>
-				<p>savor each fleeting moment...</p>
-				<p>imbue it with your most enchanting smile.</p>
-				<p>Let's craft it into the most cherished memory.</p>
-				<p>Lastly...</p>
-				<p>Allow me to extend my wishes once more,</p>
-				<p>a profoundly happy birthday to you!</p>
-			</div>
-		</div>
-		
-		<div class="navbar navbar-fixed-bottom">
-			<div class="row">
-				<div class="col-md-6 text-center col-md-offset-3">
-					<button class="btn btn-primary" id="turn_on">Turn On Lights</button>
-					<button class="btn btn-primary" id="play">Play Music</button>
-					<button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
-					<button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
-					<button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
-					<button class="btn btn-primary" id="light_candle"> Light Candle</button>
-					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
-					<button class="btn btn-primary" id="story">A message for you</button>
-					<!-- <button class="btn btn-primary" id="cake_cut">Let's Cut the Cake</button> -->
-				</div>
-			</div>
-		</div>
-	</div>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<section class="about-kate">
+  <div class="heart-frame">
+    <h2>About Our Wonderful Kate</h2>
+    <p>A ray of sunshine with a heart of gold, Kate lights up every room she enters. Her infectious laugh and kind spirit make the world a better place.</p>
+  </div>
+</section>
+
+<div class="cake"></div>
+
+<div class="message">
+  May your special day be filled with endless joy, laughter, and beautiful moments that sparkle as brightly as you do. Every day you share your light with the world makes it a better place. Happy Birthday, dear Kate! 💖✨
+</div>
+
+<div class="gift-box" id="giftBox"></div>
+
 <script>
-    // JavaScript to show the bulbs and celebrate image when the "Turn On Lights" button is clicked
-    document.getElementById('turn_on').addEventListener('click', function() {
-        var bulbs = document.querySelectorAll('.bulb');
-        bulbs.forEach(function(bulb) {
-            bulb.style.display = 'block';
-        });
-        var celebrateImg = document.querySelector('.celebrate-img');
-        celebrateImg.style.display = 'block';
+// Confetti Animation
+function createConfetti() {
+  const confetti = document.getElementById('confetti');
+  for(let i = 0; i < 50; i++) {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.width = '10px';
+    particle.style.height = '10px';
+    particle.style.background = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+    particle.style.borderRadius = '50%';
+    particle.style.left = Math.random() * 100 + 'vw';
+    particle.style.top = -10 + 'px';
+    confetti.appendChild(particle);
+    
+    gsap.to(particle, {
+      y: '100vh',
+      x: (Math.random() - 0.5) * 200,
+      rotation: Math.random() * 360,
+      duration: Math.random() * 2 + 1,
+      ease: 'none',
+      repeat: -1,
+      delay: Math.random()
     });
+  }
+}
+
+// Countdown Timer
+function updateCountdown() {
+  const birthday = new Date('2024-06-15').getTime(); // Set Kate's birthday
+  const now = new Date().getTime();
+  const distance = birthday - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  
+  document.getElementById('countdown').innerHTML = `${days} Days, ${hours} Hours until Kate's Birthday!`;
+}
+
+// Gift Box Animation
+document.getElementById('giftBox').addEventListener('click', function() {
+  gsap.to(this, {
+    scale: 1.2,
+    rotation: 360,
+    duration: 0.5,
+    onComplete: () => {
+      createConfetti();
+    }
+  });
+});
+
+// Initialize
+createConfetti();
+setInterval(updateCountdown, 1000);
+updateCountdown();
 </script>
-<script src="effect.js"></script>
+</body>
 </html>
